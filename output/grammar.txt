@@ -1,0 +1,30 @@
+% start S
+
+S -> NP1 VP
+S -> NP1 VP PerNoun
+S -> NP2 VP5
+
+NP1 -> Pronoun
+NP2 -> PreDet Nominal
+VP -> Tense VP1 | VP2 | Tense VP3 | Tense VP4
+VP1 -> Verb Nominal | Verb Adverb | Verb PP Nominal
+VP2 -> Adjective Adverb
+VP3 -> Verb Adverb Conjunction Verb Nominal
+VP4 -> Neg Verb Nominal
+VP5 -> Passive VP1
+Nominal -> Noun | Noun PosDet
+
+Noun -> 'nhu cầu' | 'sản phẩm' | 'dịch vụ' | 'thông tin'
+PosDet -> 'này' | 'kia' | 'đó' | 'ấy'
+PreDet -> 'cái'
+PerNoun -> 'anh' | 'chị' | 'bạn' | 'cậu' | 'chú' 
+Verb -> 'có' | 'muốn' | 'thích' | 'biết' | 'mua' | 'thử'
+Neg -> 'không'
+Adverb -> 'lắm'
+Adjective -> 'bận' | 'hào hứng' | 'quan tâm'
+Pronoun -> 'tôi' | 'mình' | 'tớ' | 'anh' | 'chị'
+Conjunction -> 'và' | 'hoặc' | 'nhưng'
+Tense -> 'đang' | 'vẫn' | 'sẽ' | 'đã'
+Passive -> 'được' | 'bị'
+PP -> 'về'
+Punc -> '.'

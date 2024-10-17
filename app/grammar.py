@@ -4,37 +4,10 @@ from nltk import grammar, parse
 # from nltk.parse.generate import generate
 from random import choice
 
-rules = """
-% start S
-S -> NP VP
-S -> NP VP PerNoun
-
-NP -> Pronoun | PreDet Nominal
-VP -> Tense VP1 | VP2 | Tense VP3 | Passive VP1
-VP1 -> Neg Verb Nominal | Verb Nominal | Verb Adverb | Verb PP
-VP2 -> Adjective Adverb
-VP3 -> Verb Adverb Conjunction Verb Nominal
-
-Nominal -> Noun | Noun PosDet
-Noun -> 'nhu cầu' | 'sản phẩm' | 'dịch vụ' | 'thông tin'
-PosDet -> 'này' | 'kia' | 'đó' | 'ấy'
-PreDet -> 'cái'
-PerNoun -> 'anh' | 'chị' | 'bạn' | 'cậu' | 'chú' 
-Verb -> 'có' | 'muốn' | 'thích' | 'cần' | 'biết' | 'mua' | 'thử'
-Neg -> 'không'
-Adverb -> 'lắm' | 'thêm'
-Adjective -> 'bận' | 'hào hứng' | 'quan tâm'
-Pronoun -> 'tôi' | 'mình' | 'tớ' | 'anh' | 'chị' | 'bạn' | 'cậu' | 'chú'
-
-Conjunction -> 'và' | 'hoặc' | 'nhưng'
-Tense -> 'đang' | 'vẫn' | 'sẽ' | 'đã'
-Passive -> 'được' | 'bị'
-PP -> 'về sản phẩm' | 'về dịch vụ'
-Punc -> '.'
-"""
-
 class Grammar():
-    def __init__(self):
+    def __init__(self, path):
+        with open(path, 'r') as f:
+            rules = f.read() 
         self.grammar = CFG.fromstring(rules)
         self.parser = nltk.ChartParser(self.grammar)
     
