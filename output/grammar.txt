@@ -6,7 +6,7 @@ S -> NP2 VP5
 
 NP1 -> Pronoun
 NP2 -> PreDet Nominal
-VP -> Tense VP1 | VP2 | Tense VP3 | Tense VP4
+VP -> Tense VP1 | VP1 | VP2 | Tense VP3 | VP3 | Tense VP4 | VP4
 VP1 -> Verb Nominal | Verb Adverb | Verb PP Nominal
 VP2 -> Adjective Adverb
 VP3 -> Verb Adverb Conjunction Verb Nominal

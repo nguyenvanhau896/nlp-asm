@@ -3,13 +3,13 @@ from nltk import CFG
 from nltk import grammar, parse
 # from nltk.parse.generate import generate
 from random import choice
+from .tokenizer import Tokenizer
 
 class Grammar():
-    def __init__(self, path):
-        with open(path, 'r') as f:
-            rules = f.read() 
+    def __init__(self, rules):
         self.grammar = CFG.fromstring(rules)
         self.parser = nltk.ChartParser(self.grammar)
+        self.tokenizer = Tokenizer(self.grammar)
     
     def generate_sentence(self, symbols=None):
         if symbols is None:
@@ -27,6 +27,17 @@ class Grammar():
                 sentences += self.generate_sentence([sym])
         return sentences    
         
-    def parse_sentence():
-        pass
+    def parse_sentence(self, sentence):
+        """
+        This function is used to parse a sentence
+        """
+        try:
+            tokens, unseen_tokens = self.tokenizer.tokenize(sentence)
+            if len(unseen_tokens) > 0:
+                return "()"
+            
+            tree = next(self.parser.parse(tokens))
+            return tree.pformat(margin=float('inf'))
+        except StopIteration:
+            return "()"
         
