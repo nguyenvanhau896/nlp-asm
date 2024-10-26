@@ -1,14 +1,14 @@
 import nltk
 from nltk import CFG
-from nltk import grammar, parse
+from nltk import grammar
 # from nltk.parse.generate import generate
 from random import choice
-from .tokenizer import Tokenizer
+from models import Tokenizer, TopDownParser
 
 class Grammar():
     def __init__(self, rules):
         self.grammar = CFG.fromstring(rules)
-        self.parser = nltk.ChartParser(self.grammar)
+        self.parser = TopDownParser(self.grammar)
         self.tokenizer = Tokenizer(self.grammar)
     
     def generate_sentence(self, symbols=None):
@@ -32,12 +32,26 @@ class Grammar():
         This function is used to parse a sentence
         """
         try:
-            tokens, unseen_tokens = self.tokenizer.tokenize(sentence)
-            if len(unseen_tokens) > 0:
+            tokens, unk_tokens = self.tokenizer.tokenize(sentence)
+            if len(unk_tokens) > 0:
                 return "()"
-            
-            tree = next(self.parser.parse(tokens))
-            return tree.pformat(margin=float('inf'))
+            tree = self.parser.parse(tokens)
+            return self.parser.penn_tree_bank_format(tree)
+
+        except StopIteration:
+            return "()"
+        
+    def built_in_parser(self, sentence):
+        """
+        This function is used to parse a sentence using NLTK built-in parser
+        """
+        try:
+            tokens, unk_tokens = self.tokenizer.tokenize(sentence)
+            if len(unk_tokens) > 0:
+                return "()"
+            parser = nltk.ChartParser(self.grammar)
+            tree = next(parser.parse(tokens))
+            return tree.pformat(margin=1000000)
         except StopIteration:
             return "()"
         

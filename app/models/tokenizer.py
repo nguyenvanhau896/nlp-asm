@@ -12,7 +12,7 @@ class Tokenizer():
 
     def tokenize(self, sentence):
         tokens = []
-        unseen_tokens = []
+        unk_tokens = []
         curr_str = sentence
         while curr_str:
             is_matched = False
@@ -25,7 +25,7 @@ class Tokenizer():
             if not is_matched:
                 unseen_token = curr_str.split(' ')[0]
                 tokens.append(unseen_token)
-                unseen_tokens.append(unseen_token) # add to unseen_tokens list
+                unk_tokens.append(unseen_token) # add to unseen_tokens list
                 curr_str = curr_str[len(unseen_token):].strip()
-        return tokens, unseen_tokens
+        return tokens, unk_tokens
             
