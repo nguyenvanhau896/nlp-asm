@@ -1,3 +1,3 @@
 from .tokenizer import Tokenizer
-from .chartparser import TopDownParser
+from .parser import TopDownParser
 from .grammar import Grammar

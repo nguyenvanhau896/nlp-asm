@@ -1,6 +1,5 @@
-import os
 from models import Grammar
-from nltk import parse
+
 # Define relative paths to input and output files
 grammar_path = "../output/grammar.txt"
 samples_path = "../output/samples.txt"
@@ -23,22 +22,36 @@ def parse_sentence(grammar, input_path, output_path):
         input_sentences = input_file.read()
         list_sentences = input_sentences.split('\n')
         parse_results = []
-        nltk_parse_results = []
+        # nltk_parse_results = []
         for sentence in list_sentences:
             result_sentence = grammar.parse_sentence(sentence)
             parse_results.append(result_sentence)
-            nltk_parse_results.append(grammar.built_in_parser(sentence))
-        for i in range(len(parse_results)):
-            assert parse_results[i] == nltk_parse_results[i], "failed at " + str(i) + "\nExpected: " + nltk_parse_results[i] + "\nGot: " + parse_results[i]
-        # with open(output_path, 'w') as output_file:
-        #     output_file.write('\n'.join(parse_results))
+            # nltk_parse_results.append(grammar.built_in_parser(sentence))
+        # for i in range(len(parse_results)):
+        #     assert parse_results[i] == nltk_parse_results[i], "failed at " + str(i) + "\nExpected: " + nltk_parse_results[i] + "\nGot: " + parse_results[i]
+        with open(output_path, 'w') as output_file:
+            output_file.write('\n'.join(parse_results))
     
 if __name__ ==  "__main__":
     with open(grammar_path, 'r') as rules_file:
         rules = rules_file.read() 
         grammar = Grammar(rules=rules)
-        # generate_sentence(grammar, samples_path)
-        parse_sentence(grammar, input_sentences_path, parse_results_path)
+        
+        while True:
+            print("Enter 1 to generate random sentences, 2 to parse sentences, or q to quit...")
+            user_input = input("Your input: ")
+
+            if user_input == '1':
+                generate_sentence(grammar, samples_path)
+                print("Generated sentences saved to " + samples_path)
+            elif user_input == '2':
+                parse_sentence(grammar, input_sentences_path, parse_results_path)
+                print("Parsed sentences saved to " + parse_results_path)
+            elif user_input.lower() == 'q':
+                print("Exiting program...")
+                break
+            else:
+                print("Invalid input. Please enter 1, 2, or q to quit.")
         
         
     

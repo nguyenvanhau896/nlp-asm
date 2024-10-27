@@ -6,6 +6,7 @@ class TopDownParser:
         self.start_symbol = grammar.start()  # Typically 'S'
         self.tokens = []
         self.index = 0  # Track current token index
+        self.backtrack = []  # Stack to store backtracking points
 
     def parse(self, tokens):
         """
@@ -15,12 +16,20 @@ class TopDownParser:
         """
         self.tokens = tokens
         self.index = 0  # Reset token index for new parsing attempt
+        self.backtrack = []
 
         parse_tree = self._parse_symbol(self.start_symbol)
+        
         if parse_tree and self.index == len(tokens):
             return parse_tree
-        else:
-            return None  # Return None if parsing failed
+        
+        if self.backtrack and parse_tree:
+            production, original_index = self.backtrack.pop()
+            self.index = original_index
+            self._parse_production(production.rhs(), parse_tree)
+            return parse_tree
+        
+        return None  # Return None if parsing failed
 
     def _parse_symbol(self, symbol):
         """
@@ -30,16 +39,18 @@ class TopDownParser:
         """
         if isinstance(symbol, nltk.Nonterminal):  # If non-terminal, expand it
             productions = self.grammar.productions(lhs=symbol)
-            
-            for production in productions:
+            for i in range(len(productions)):
                 original_index = self.index  # Save current index for backtracking
                 subtree = [symbol]  # Create a subtree for this symbol
-
-                if self._parse_production(production.rhs(), subtree):  # Try expanding with this production
+                
+                if i < len(productions) - 1 and isinstance(productions[i].rhs()[0], nltk.Nonterminal) and symbol != nltk.Nonterminal("S"):
+                    self.backtrack.append((productions[i + 1], original_index))
+                    
+                if self._parse_production(productions[i].rhs(), subtree):  # Try expanding with this production
                     return subtree  # Return the subtree if successful
                 else:
                     self.index = original_index  # Backtrack on failure
-
+                    
             return None  # No production matched
         else:  # If terminal, try to match it with the current token
             if self.index < len(self.tokens) and symbol == self.tokens[self.index]:

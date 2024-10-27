@@ -3,7 +3,8 @@ from nltk import CFG
 from nltk import grammar
 # from nltk.parse.generate import generate
 from random import choice
-from models import Tokenizer, TopDownParser
+from .parser import TopDownParser
+from .tokenizer import Tokenizer
 
 class Grammar():
     def __init__(self, rules):

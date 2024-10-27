@@ -1,30 +1,29 @@
 % start S
 
 S -> NP1 VP
-S -> NP1 VP PerNoun
-S -> NP2 VP5
+# S -> NP1 VP PerNoun
+S -> NP2 Passive VP2
 
-NP1 -> Pronoun
-NP2 -> PreDet Nominal
-VP -> Tense VP1 | VP1 | VP2 | Tense VP3 | VP3 | Tense VP4 | VP4
-VP1 -> Verb Nominal | Verb Adverb | Verb PP Nominal
-VP2 -> Adjective Adverb
-VP3 -> Verb Adverb Conjunction Verb Nominal
+NP1 -> Temp Pronoun | Pronoun
+NP2 -> PreDet Nominal | Nominal
+VP -> Tense VP3  | Tense VP4  | Tense VP1 | VP3 | VP4 |  VP1 | VP2 
+VP1 -> Verb PP Nominal | Verb Nominal | Verb 
+VP2 -> Adjective
+VP3 -> Verb Conjunction Verb Nominal
 VP4 -> Neg Verb Nominal
-VP5 -> Passive VP1
-Nominal -> Noun | Noun PosDet
 
-Noun -> 'nhu cầu' | 'sản phẩm' | 'dịch vụ' | 'thông tin'
+Nominal -> Noun PosDet | Noun 
+Noun -> 'nhu cầu' | 'sản phẩm' | 'dịch vụ' | 'thông tin' | 'cuộc gọi' | 'chương trình'
 PosDet -> 'này' | 'kia' | 'đó' | 'ấy'
 PreDet -> 'cái'
 PerNoun -> 'anh' | 'chị' | 'bạn' | 'cậu' | 'chú' 
-Verb -> 'có' | 'muốn' | 'thích' | 'biết' | 'mua' | 'thử'
+Verb -> 'có' | 'muốn' | 'thích' | 'biết' | 'mua' | 'thử' | 'quan tâm'
 Neg -> 'không'
-Adverb -> 'lắm'
-Adjective -> 'bận' | 'hào hứng' | 'quan tâm'
+Adjective -> 'bận' | 'hào hứng' | 'hài lòng' | 'tốt' | 'phù hợp' | 'đắt' | 'rẻ'
 Pronoun -> 'tôi' | 'mình' | 'tớ' | 'anh' | 'chị'
 Conjunction -> 'và' | 'hoặc' | 'nhưng'
 Tense -> 'đang' | 'vẫn' | 'sẽ' | 'đã'
 Passive -> 'được' | 'bị'
+Temp -> 'hiện tại' | 'bây giờ'
 PP -> 'về'
 Punc -> '.'
