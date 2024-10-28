@@ -23,11 +23,11 @@ class TopDownParser:
         if parse_tree and self.index == len(tokens):
             return parse_tree
         
-        if self.backtrack and parse_tree:
-            production, original_index = self.backtrack.pop()
-            self.index = original_index
-            self._parse_production(production.rhs(), parse_tree)
-            return parse_tree
+        # if self.backtrack and parse_tree:
+        #     production, original_index = self.backtrack.pop()
+        #     self.index = original_index
+        #     self._parse_production(production.rhs(), parse_tree)
+        #     return parse_tree
         
         return None  # Return None if parsing failed
 
@@ -43,8 +43,8 @@ class TopDownParser:
                 original_index = self.index  # Save current index for backtracking
                 subtree = [symbol]  # Create a subtree for this symbol
                 
-                if i < len(productions) - 1 and isinstance(productions[i].rhs()[0], nltk.Nonterminal) and symbol != nltk.Nonterminal("S"):
-                    self.backtrack.append((productions[i + 1], original_index))
+                # if i < len(productions) - 1 and isinstance(productions[i].rhs()[0], nltk.Nonterminal) and symbol != nltk.Nonterminal("S"):
+                #     self.backtrack.append((productions[i + 1], original_index))
                     
                 if self._parse_production(productions[i].rhs(), subtree):  # Try expanding with this production
                     return subtree  # Return the subtree if successful
