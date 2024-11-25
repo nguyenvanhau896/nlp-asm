@@ -16,20 +16,37 @@
 ### Project structure:
 
 python/
+
 ├── hcmut/
+
 │   └── nlp/
+
 │       └── app/
+
 │           ├── data.py
+
 │           ├── file_manager.py
+
 │           ├── grammar.fcfg
+
 │           ├── grammar_relation.py
+
 │           ├── main.py
+
 │           ├── semantic_procedure.py
+
 │       └── output/
+
 │           ├── p2-q-1.txt
+
 │           ├── p2-q-2.txt
+
 │           ├── p2-q-3.txt
+
 │           ├── p2-q-4.txt
+
 │           └── p2-q-5.txt
+
 ├── README.md
+
 └── requirements.txt
