@@ -1,0 +1,31 @@
+Question 1: em có thể nhắc lại tất cả các tour được không
+Answer: Có tất cả 6 tours
+Danh sách các tour:
+Tour 1 có mã là PQ, xuất phát từ Hồ_Chí_Minh, khởi hành lúc 7AM 1/7
+Tour 2 có mã là PQ, xuất phát từ Hồ_Chí_Minh, khởi hành lúc 8AM 5/7
+Tour 3 có mã là DN, xuất phát từ Hồ_Chí_Minh, khởi hành lúc 7AM 1/7
+Tour 4 có mã là DN, xuất phát từ Hồ_Chí_Minh, khởi hành lúc 7AM 4/7
+Tour 5 có mã là NT, xuất phát từ Hồ_Chí_Minh, khởi hành lúc 7AM 1/7
+Tour 6 có mã là NT, xuất phát từ Hồ_Chí_Minh, khởi hành lúc 7AM 5/7
+
+
+Question 2: đi từ Hồ Chí Minh tới Nha Trang hết bao lâu
+Answer: Đi từ Hồ_Chí_Minh tới Nha_Trang hết: 5:00 HR
+
+
+Question 3: đi từ Hồ Chí Minh tới Đà Nẵng hết bao lâu
+Answer: Đi từ Hồ_Chí_Minh tới Đà_Nẵng hết: 2:00 HR
+
+
+Question 4: có bao nhiêu tour đi Phú Quốc vậy bạn
+Answer: Có tất cả 2 tours đi Phú_Quốc
+
+
+Question 5: tour Nha Trang đi bằng phương tiện gì vậy
+Answer: Tour Nha_Trang đi bằng phương tiện: tàu_hỏa
+
+
+Question 6: đi Nha Trang có những ngày nào nhỉ
+Answer: Tour Nha_Trang có ngày khởi hành vào lúc 7AM 1/7
+Tour Nha_Trang có ngày khởi hành vào lúc 7AM 5/7
+

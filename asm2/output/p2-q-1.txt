@@ -1,0 +1,39 @@
+Grammar with 38 productions (start state = S[])
+    S[GAP=?t, SEM=<WH_QUERY(?rm(?pro,?tour),?whq(?tour))>, VAR=?y] -> PRONOUN[SEM=?pro, VAR=?noun] 'có' 'thể' REMIND_VP[SEM=?rm, VAR=?y] ALL_QUERY[SEM=?whq] TOUR_N[SEM=?tour, VAR=?t] 'được' 'không' OPT_END2[]
+    S[GAP='x1', SEM=<WH_QUERY(?tv(?dest(?d),x1),?whq(x1))>, VAR=?y] -> COUNT_QUERY[SEM=?whq] TOUR_N[SEM=?tour, VAR=?t] TRAVEL_VP2[SEM=?tv, VAR=?y] CITY_DEST[SEM=?dest, VAR=?d] OPT_END2[]
+    S[GAP='x1', SEM=<WH_QUERY(?tv(?source(?src),?dest(?dst),x1),?whq(x1))>, VAR=?y] -> TRAVEL_VP1[SEM=?tv, VAR=?y] CITY_SOURCE[SEM=?source, VAR=?src] CITY_DEST[SEM=?dest, VAR=?dst] TIME_QUERY[SEM=?whq] OPT_END2[]
+    S[GAP='x1', SEM=<WH_QUERY(?tv(?dest(?dst),m1),?whq(x1))>, VAR=?y] -> TOUR_N[SEM=?tour, VAR=?t] CITY_DEST[SEM=?dest, VAR=?dst] TRAVEL_VP2[SEM=?tv, VAR=?y] TRANSPORT_QUERY[SEM=?whq] OPT_END2[]
+    S[GAP='x1', SEM=<WH_QUERY(?tv(?dest(?dst),d1),?whq(x1))>, VAR=?t] -> TRAVEL_VP2[SEM=?tv, VAR=?y] CITY_DEST[SEM=?dest, VAR=?dst] SCHEDULE_QUERY[SEM=?whq] OPT_END2[]
+    CITY_SOURCE[SEM=<SOURCE(?x)>, VAR=?t] -> CITY_NP[SEM=?x, VAR=?t]
+    CITY_SOURCE[SEM=<SOURCE(?x)>, VAR=?t] -> 'từ' CITY_NP[SEM=?x, VAR=?t]
+    CITY_DEST[SEM=<DEST(?x)>, VAR=?t] -> 'tới' CITY_NP[SEM=?x, VAR=?t]
+    CITY_DEST[SEM=<DEST(?x)>, VAR=?t] -> 'đi' CITY_NP[SEM=?x, VAR=?t]
+    CITY_DEST[SEM=<DEST(?x)>, VAR=?t] -> CITY_NP[SEM=?x, VAR=?t]
+    TIME_QUERY[SEM=<\x.TIME(x,HOW_LONG)>, VAR=?t] -> 'hết' 'bao' 'lâu'
+    CITY_NP[SEM=<NAME(?v,?x)>, VAR=?v] -> CITY_NAME[SEM=?x, VAR=?v]
+    HAVE_VP[SEM=<\t.HAVE1(t)>, VAR=<c1>] -> 'có'
+    REMIND_VP[SEM=<\p t.REMIND1(p,t)>, VAR=<r1>] -> 'nhắc' 'lại'
+    TRAVEL_VP1[SEM=<\s d t.TRAVEL1(s,d,t)>, VAR=<a1>] -> 'đi'
+    TRAVEL_VP2[SEM=<\d t.TRAVEL2(d,t)>, VAR=<a2>] -> 'đi' 'bằng'
+    TRAVEL_VP2[SEM=<\d t.TRAVEL2(d,t)>, VAR=<a2>] -> 'đi'
+    TOUR_N[SEM=<TOUR1>, VAR=<t1>] -> 'tour'
+    TOUR_N[SEM=<TOUR1>, VAR=<t1>] -> 'các' 'tour'
+    ALL_QUERY[SEM=<\x.WH(x,LIST1)>] -> 'tất' 'cả'
+    TIME_QUERY[SEM=<\x.WH(x,HOW1)>] -> 'hết' 'bao' 'lâu'
+    COUNT_QUERY[SEM=<\x.WH(x,HOW2)>] -> 'có' 'bao' 'nhiêu'
+    TRANSPORT_QUERY[SEM=<\x.WH(x,WHICH1)>] -> 'bằng' 'phương' 'tiện' 'gì'
+    SCHEDULE_QUERY[SEM=<\x.WH(x,WHAT1)>] -> 'có' 'những' 'ngày' 'nào'
+    CITY_NAME[SEM=<'HCMC'>, VAR=<h1>] -> 'Hồ' 'Chí' 'Minh'
+    CITY_NAME[SEM=<'NT'>, VAR=<n1>] -> 'Nha' 'Trang'
+    CITY_NAME[SEM=<'DN'>, VAR=<d1>] -> 'Đà' 'Nẵng'
+    CITY_NAME[SEM=<'PQ'>, VAR=<p1>] -> 'Phú' 'Quốc'
+    TRANSPORT[SEM=<BUS>, VAR=<b1>] -> 'xe' 'bus'
+    TRANSPORT[SEM=<PLANE>, VAR=<p1>] -> 'máy' 'bay'
+    TRANSPORT[SEM=<TRAIN>, VAR=<t1>] -> 'tàu' 'hỏa'
+    PRONOUN[SEM=<EM>, VAR=<e1>] -> 'em'
+    PRONOUN[SEM=<ANH>, VAR=<e1>] -> 'anh'
+    OPT_END[] -> 'vậy'
+    OPT_END[] -> 'nhỉ'
+    OPT_END[] -> 
+    OPT_END2[] -> OPT_END[] 'bạn'
+    OPT_END2[] -> OPT_END[]

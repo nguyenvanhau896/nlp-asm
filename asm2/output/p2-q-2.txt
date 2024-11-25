@@ -1,0 +1,24 @@
+Parsing sentence 1: em có thể nhắc lại tất cả các tour được không
+Parsed result of sentence 1: (S[GAP=<t2>, SEM=<WH_QUERY(REMIND1(EM,TOUR1),WH(TOUR1,LIST1))>, VAR=<r2>] (PRONOUN[SEM=<EM>, VAR=<e1>] em) có thể (REMIND_VP[SEM=<\p t.REMIND1(p,t)>, VAR=<r1>] nhắc lại) (ALL_QUERY[SEM=<\x.WH(x,LIST1)>] tất cả) (TOUR_N[SEM=<TOUR1>, VAR=<t1>] các tour) được không (OPT_END2[] (OPT_END[] )))
+Semantic of sentence 1: WH_QUERY(REMIND1(EM,TOUR1),WH(TOUR1,LIST1))
+
+Parsing sentence 2: đi từ Hồ Chí Minh tới Nha Trang hết bao lâu
+Parsed result of sentence 2: (S[GAP='x1', SEM=<WH_QUERY(TRAVEL1(SOURCE(NAME(h2,'HCMC'),h2),DEST(NAME(n2,'NT'),n2),x1),WH(x1,HOW1))>, VAR=<a2>] (TRAVEL_VP1[SEM=<\s d t.TRAVEL1(s,d,t)>, VAR=<a1>] đi) (CITY_SOURCE[SEM=<SOURCE(NAME(h3,'HCMC'))>, VAR=<h3>] từ (CITY_NP[SEM=<NAME(h2,'HCMC')>, VAR=<h2>] (CITY_NAME[SEM=<'HCMC'>, VAR=<h1>] Hồ Chí Minh))) (CITY_DEST[SEM=<DEST(NAME(n3,'NT'))>, VAR=<n3>] tới (CITY_NP[SEM=<NAME(n2,'NT')>, VAR=<n2>] (CITY_NAME[SEM=<'NT'>, VAR=<n1>] Nha Trang))) (TIME_QUERY[SEM=<\x.WH(x,HOW1)>] hết bao lâu) (OPT_END2[] (OPT_END[] )))
+Semantic of sentence 2: WH_QUERY(TRAVEL1(SOURCE(NAME(h2,'HCMC'),h2),DEST(NAME(n2,'NT'),n2),x1),WH(x1,HOW1))
+
+Parsing sentence 3: đi từ Hồ Chí Minh tới Đà Nẵng hết bao lâu
+Parsed result of sentence 3: (S[GAP='x1', SEM=<WH_QUERY(TRAVEL1(SOURCE(NAME(h2,'HCMC'),h2),DEST(NAME(d2,'DN'),d2),x1),WH(x1,HOW1))>, VAR=<a2>] (TRAVEL_VP1[SEM=<\s d t.TRAVEL1(s,d,t)>, VAR=<a1>] đi) (CITY_SOURCE[SEM=<SOURCE(NAME(h3,'HCMC'))>, VAR=<h3>] từ (CITY_NP[SEM=<NAME(h2,'HCMC')>, VAR=<h2>] (CITY_NAME[SEM=<'HCMC'>, VAR=<h1>] Hồ Chí Minh))) (CITY_DEST[SEM=<DEST(NAME(d3,'DN'))>, VAR=<d3>] tới (CITY_NP[SEM=<NAME(d2,'DN')>, VAR=<d2>] (CITY_NAME[SEM=<'DN'>, VAR=<d1>] Đà Nẵng))) (TIME_QUERY[SEM=<\x.WH(x,HOW1)>] hết bao lâu) (OPT_END2[] (OPT_END[] )))
+Semantic of sentence 3: WH_QUERY(TRAVEL1(SOURCE(NAME(h2,'HCMC'),h2),DEST(NAME(d2,'DN'),d2),x1),WH(x1,HOW1))
+
+Parsing sentence 4: có bao nhiêu tour đi Phú Quốc vậy bạn
+Parsed result of sentence 4: (S[GAP='x1', SEM=<WH_QUERY(TRAVEL2(DEST(NAME(p3,'PQ'),p3),x1),WH(x1,HOW2))>, VAR=<a3>] (COUNT_QUERY[SEM=<\x.WH(x,HOW2)>] có bao nhiêu) (TOUR_N[SEM=<TOUR1>, VAR=<t1>] tour) (TRAVEL_VP2[SEM=<\d t.TRAVEL2(d,t)>, VAR=<a2>] đi) (CITY_DEST[SEM=<DEST(NAME(p2,'PQ'))>, VAR=<p2>] (CITY_NP[SEM=<NAME(p2,'PQ')>, VAR=<p2>] (CITY_NAME[SEM=<'PQ'>, VAR=<p1>] Phú Quốc))) (OPT_END2[] (OPT_END[] vậy) bạn))
+Semantic of sentence 4: WH_QUERY(TRAVEL2(DEST(NAME(p3,'PQ'),p3),x1),WH(x1,HOW2))
+
+Parsing sentence 5: tour Nha Trang đi bằng phương tiện gì vậy
+Parsed result of sentence 5: (S[GAP='x1', SEM=<WH_QUERY(TRAVEL2(DEST(NAME(n3,'NT'),n3),m1),WH(x1,WHICH1))>, VAR=<a3>] (TOUR_N[SEM=<TOUR1>, VAR=<t1>] tour) (CITY_DEST[SEM=<DEST(NAME(n2,'NT'))>, VAR=<n2>] (CITY_NP[SEM=<NAME(n2,'NT')>, VAR=<n2>] (CITY_NAME[SEM=<'NT'>, VAR=<n1>] Nha Trang))) (TRAVEL_VP2[SEM=<\d t.TRAVEL2(d,t)>, VAR=<a2>] đi) (TRANSPORT_QUERY[SEM=<\x.WH(x,WHICH1)>] bằng phương tiện gì) (OPT_END2[] (OPT_END[] vậy)))
+Semantic of sentence 5: WH_QUERY(TRAVEL2(DEST(NAME(n3,'NT'),n3),m1),WH(x1,WHICH1))
+
+Parsing sentence 6: đi Nha Trang có những ngày nào nhỉ
+Parsed result of sentence 6: (S[GAP='x1', SEM=<WH_QUERY(TRAVEL2(DEST(NAME(n3,'NT'),n3),d1),WH(x1,WHAT1))>, VAR=?t] (TRAVEL_VP2[SEM=<\d t.TRAVEL2(d,t)>, VAR=<a2>] đi) (CITY_DEST[SEM=<DEST(NAME(n2,'NT'))>, VAR=<n2>] (CITY_NP[SEM=<NAME(n2,'NT')>, VAR=<n2>] (CITY_NAME[SEM=<'NT'>, VAR=<n1>] Nha Trang))) (SCHEDULE_QUERY[SEM=<\x.WH(x,WHAT1)>] có những ngày nào) (OPT_END2[] (OPT_END[] nhỉ)))
+Semantic of sentence 6: WH_QUERY(TRAVEL2(DEST(NAME(n3,'NT'),n3),d1),WH(x1,WHAT1))
+

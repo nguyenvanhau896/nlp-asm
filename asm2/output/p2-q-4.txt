@@ -1,0 +1,23 @@
+Question 1: em có thể nhắc lại tất cả các tour được không
+Logical form: WH_QUERY(REMIND1(EM TOUR1) WH(TOUR1 LIST1))
+Semantic procedure: (PRINT-ALL ?t2 (TOUR ?t2))
+
+Question 2: đi từ Hồ Chí Minh tới Nha Trang hết bao lâu
+Logical form: WH_QUERY(TRAVEL1(SOURCE(NAME(h2 'HCMC') h2) DEST(NAME(n2 'NT') n2) x1) WH(x1 HOW1))
+Semantic procedure: (PRINT-ALL ?n2 (TOUR NT ?n2) (RUN-TIME ?n2) (DTIME ?n2 HCMC ?x1) (ATIME ?n2 NT ?x1))
+
+Question 3: đi từ Hồ Chí Minh tới Đà Nẵng hết bao lâu
+Logical form: WH_QUERY(TRAVEL1(SOURCE(NAME(h2 'HCMC') h2) DEST(NAME(d2 'DN') d2) x1) WH(x1 HOW1))
+Semantic procedure: (PRINT-ALL ?d2 (TOUR DN ?d2) (RUN-TIME ?d2) (DTIME ?d2 HCMC ?x1) (ATIME ?d2 DN ?x1))
+
+Question 4: có bao nhiêu tour đi Phú Quốc vậy bạn
+Logical form: WH_QUERY(TRAVEL2(DEST(NAME(p3 'PQ') p3) x1) WH(x1 HOW2))
+Semantic procedure: (PRINT-ALL ?x1 (TOUR PQ ?x1))
+
+Question 5: tour Nha Trang đi bằng phương tiện gì vậy
+Logical form: WH_QUERY(TRAVEL2(DEST(NAME(n3 'NT') n3) m1) WH(x1 WHICH1))
+Semantic procedure: (PRINT-ALL ?x1 (TOUR NT ?n3) (BY ?n3 ?x1))
+
+Question 6: đi Nha Trang có những ngày nào nhỉ
+Logical form: WH_QUERY(TRAVEL2(DEST(NAME(n3 'NT') n3) d1) WH(x1 WHAT1))
+Semantic procedure: (PRINT-ALL ?x1 (TOUR NT ?n3) (DTIME ?n3 HCMC ?x1))
